@@ -10,15 +10,10 @@
 # xhost +local:docker
 
 # どのイメージを基にするか
-FROM ubuntu:16.04
+## ubuntu16.04
+FROM light606f/ubuntu
 # 作成したユーザの情報
 MAINTAINER Light606F <light606f.tsukineko@gmail.com>
-
-RUN apt update; apt install -y \
-git \
-nano \
-software-properties-common \
-bash-completion
 
 # Install something
 RUN apt update; apt install -y \
@@ -31,8 +26,10 @@ libglew-dev \
 graphviz \
 xterm
 
-# ## Install Alcommon
-# RUN ./Install/installAlcommon naoqi-sdk-2.1.4.13-linux32.tar.gz
+## Install Alcommon
+COPY naoqi-sdk-2.1.4.13-linux32.tar.gz /
+WORKDIR /
+RUN ./Install/installAlcommon naoqi-sdk-2.1.4.13-linux32.tar.gz
 
 # Install for openCV
 ENV DEBIAN_FRONTEND=noninteractive
@@ -55,18 +52,13 @@ libtiff5-dev \
 libopenexr-dev \
 libwebp-dev \
 libhdf5-dev \
+libjasper-dev \
+libpython3.5-dev \
 python3-numpy \
 python3-scipy \
 python3-matplotlib \
 libopenblas-dev \
 liblapacke-dev
-
-RUN apt update; apt install -y \
-libpython3.5-dev
- # \
-RUN apt update; apt install -y \
-libjasper-dev
- # \
 
 WORKDIR /
 RUN git clone https://github.com/opencv/opencv.git
@@ -89,10 +81,3 @@ RUN make install
 RUN echo "/usr/local/lib" > /etc/ld.so.conf.d/opencv.conf
 ## 共有ライブラリの依存関係情報を更新する
 RUN ldconfig
-
-# Initializer
-WORKDIR /
-RUN git clone https://github.com/light606f/initializer.git
-
-WORKDIR initializer
-RUN bash terminalSetting.bash
