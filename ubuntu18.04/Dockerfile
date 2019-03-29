@@ -1,8 +1,8 @@
-# Command to build : docker build -t [IMAGE NAME] Dockerfiles/ownUbuntu/
-# Command to run : docker run --rm --net=host -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix:ro [IMAGE NAME] /bin/bash
+# Command to build : docker build -t light606f/ubuntu:18.04 ubuntu18.04/
+# Command to run : docker run --rm --net=host -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix:ro light606f/ubuntu /bin/bash
 # Command to create window. Do on host. : xhost +local:docker
 
-FROM ubuntu
+FROM ubuntu:18.04
 # 作成したユーザの情報
 MAINTAINER Light606F <light606f.tsukineko@gmail.com>
 
