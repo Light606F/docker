@@ -11,7 +11,7 @@
 
 # どのイメージを基にするか
 ## ubuntu16.04
-FROM light606f/ubuntu
+FROM light606f/ubuntu:16.04
 # 作成したユーザの情報
 MAINTAINER Light606F <light606f.tsukineko@gmail.com>
 
