@@ -6,8 +6,8 @@ FROM light606f/ubuntu:18.04
 # 作成したユーザの情報
 MAINTAINER Light606F <light606f.tsukineko@gmail.com>
 
-RUN apt update; apt install -y python3 \
+RUN sudo apt update; sudo apt install -y python3 \
 python3-pip \
 python3-dev
 
-RUN pip3 install -U pip
+RUN sudo -H pip3 install -U pip
