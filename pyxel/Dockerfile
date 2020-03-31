@@ -12,7 +12,7 @@
 
 # --- IN container, how to use ---
 # USE "python3.8" command
-# USE "python3.8 -m pip" instead of pip
+# USE "pip3.8" instead of pip
 
 FROM nvidia/opengl:base-ubuntu18.04
 # 作成したユーザの情報
@@ -50,5 +50,7 @@ RUN bash terminalSetting.bash
 RUN sudo apt update; sudo apt install -y \
 python3.8 python3-pip libsdl2-dev libsdl2-image-dev;\
 python3.8 -m pip install pip pyxel
+
+ENV PATH "$PATH:/home/Light606F/.local/bin"
 
 WORKDIR /home/Light606F/workdir
