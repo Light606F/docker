@@ -10,6 +10,10 @@
 
 # Command to create window. Do on host. : xhost +local:docker
 
+# --- IN container, how to use ---
+# USE "python3.8" command
+# USE "python3.8 -m pip" instead of pip
+
 FROM nvidia/opengl:base-ubuntu18.04
 # 作成したユーザの情報
 MAINTAINER Light606F <light606f.tsukineko@gmail.com>
