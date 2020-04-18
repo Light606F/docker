@@ -25,7 +25,7 @@ software-properties-common \
 bash-completion
 
 # set Locale
-RUN sudo sh -c "echo '\nexport LC_ALL=C.UTF-8' >> /root/.bashrc"
+ENV LC_ALL C.UTF-8
 
 # Initializer
 WORKDIR /home/Light606F
